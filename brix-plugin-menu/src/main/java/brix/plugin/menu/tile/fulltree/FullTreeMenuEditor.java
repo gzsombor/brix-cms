@@ -14,15 +14,16 @@
 
 package brix.plugin.menu.tile.fulltree;
 
-import brix.BrixNodeModel;
-import brix.jcr.wrapper.BrixNode;
-import brix.plugin.menu.tile.MenuPicker;
-import brix.plugin.site.page.tile.admin.TileEditorPanel;
 import org.apache.wicket.markup.html.form.CheckBox;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
+
+import brix.BrixNodeModel;
+import brix.jcr.wrapper.BrixNode;
+import brix.plugin.menu.tile.MenuPicker;
+import brix.plugin.site.page.tile.admin.TileEditorPanel;
 
 class FullTreeMenuEditor extends TileEditorPanel
 {

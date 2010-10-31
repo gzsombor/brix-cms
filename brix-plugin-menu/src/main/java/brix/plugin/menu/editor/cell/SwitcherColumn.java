@@ -14,15 +14,16 @@
 
 package brix.plugin.menu.editor.cell;
 
-import brix.plugin.menu.Menu;
-import brix.plugin.menu.editor.ReferenceColumnPanel;
-import brix.plugin.site.picker.reference.ReferenceEditorConfiguration;
-import brix.web.reference.Reference;
-import com.inmethod.grid.column.AbstractColumn;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
+
+import brix.plugin.menu.Menu;
+import brix.plugin.site.picker.reference.ReferenceEditorConfiguration;
+import brix.web.reference.Reference;
+
+import com.inmethod.grid.column.AbstractColumn;
 
 /**
  * Created by IntelliJ IDEA.

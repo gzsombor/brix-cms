@@ -21,7 +21,6 @@ import org.apache.wicket.Session;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebResponse;
 import org.apache.wicket.request.target.component.IPageRequestTarget;
-import org.apache.wicket.util.time.Time;
 
 import brix.jcr.wrapper.BrixNode;
 

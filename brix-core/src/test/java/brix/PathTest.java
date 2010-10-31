@@ -24,8 +24,6 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import brix.Path;
-
 public class PathTest
 {
 

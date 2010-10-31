@@ -20,7 +20,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import brix.Path;
-import brix.util.PathSet;
 
 public class PathSetTest
 {

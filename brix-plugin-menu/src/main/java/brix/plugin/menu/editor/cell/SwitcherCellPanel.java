@@ -14,22 +14,22 @@
 
 package brix.plugin.menu.editor.cell;
 
-import brix.plugin.menu.Menu;
-import brix.plugin.menu.editor.ReferenceColumnPanel;
-import brix.plugin.site.picker.reference.ReferenceEditorConfiguration;
-import brix.web.reference.Reference;
+import java.util.Arrays;
+
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.extensions.ajax.markup.html.AjaxEditableMultiLineLabel;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-import java.util.Arrays;
+import brix.plugin.menu.Menu;
+import brix.plugin.menu.editor.ReferenceColumnPanel;
+import brix.plugin.site.picker.reference.ReferenceEditorConfiguration;
+import brix.web.reference.Reference;
 
 /**
  * A Panel that is used to change the type of a MenuType to any of the possible options

@@ -27,7 +27,6 @@ import org.apache.wicket.request.target.component.IPageRequestTarget;
 import org.apache.wicket.util.string.UrlUtils;
 
 import brix.Brix;
-import brix.jcr.wrapper.BrixNode;
 import brix.plugin.site.page.PageRenderingPage;
 import brix.web.nodepage.BrixNodeWebPage;
 import brix.web.nodepage.BrixPageParameters;

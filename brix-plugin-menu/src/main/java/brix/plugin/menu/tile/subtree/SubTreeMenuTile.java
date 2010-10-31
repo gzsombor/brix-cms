@@ -18,8 +18,6 @@ import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 
 import brix.jcr.wrapper.BrixNode;
-import brix.plugin.menu.tile.subtree.MenuRenderer;
-import brix.plugin.menu.tile.subtree.MenuTileEditor;
 import brix.plugin.site.page.tile.Tile;
 import brix.plugin.site.page.tile.admin.TileEditorPanel;
 

@@ -21,7 +21,6 @@ import java.util.Calendar;
 import javax.jcr.Binary;
 import javax.jcr.ItemVisitor;
 import javax.jcr.Node;
-import javax.jcr.PropertyIterator;
 import javax.jcr.Value;
 import javax.jcr.lock.Lock;
 import javax.jcr.nodetype.NodeDefinition;
@@ -34,9 +33,9 @@ import brix.jcr.api.JcrNodeIterator;
 import brix.jcr.api.JcrProperty;
 import brix.jcr.api.JcrPropertyIterator;
 import brix.jcr.api.JcrSession;
+import brix.jcr.api.JcrSession.Behavior;
 import brix.jcr.api.JcrVersion;
 import brix.jcr.api.JcrVersionHistory;
-import brix.jcr.api.JcrSession.Behavior;
 
 /**
  * 

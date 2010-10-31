@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.wicket.IRequestTarget;
 import org.apache.wicket.RequestCycle;
-import org.apache.wicket.RestartResponseException;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.protocol.http.WebRequest;
 import org.apache.wicket.protocol.http.WebResponse;
@@ -34,12 +33,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import brix.Brix;
-import brix.web.nodepage.ForbiddenPage;
 import brix.auth.Action;
-import brix.plugin.site.SitePlugin;
-import brix.plugin.site.auth.SiteNodeAction;
 import brix.jcr.wrapper.BrixFileNode;
 import brix.jcr.wrapper.BrixNode;
+import brix.plugin.site.SitePlugin;
 
 public class ResourceRequestTarget implements IRequestTarget
 {

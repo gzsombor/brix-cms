@@ -14,6 +14,19 @@
 
 package brix.plugin.snapshot;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.ResourceModel;
+
 import brix.Brix;
 import brix.Plugin;
 import brix.jcr.api.JcrSession;
@@ -21,14 +34,6 @@ import brix.plugin.site.SitePlugin;
 import brix.web.tab.AbstractWorkspaceTab;
 import brix.web.tab.IBrixTab;
 import brix.workspace.Workspace;
-import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.Model;
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.*;
-import org.apache.wicket.model.ResourceModel;
 
 public class SnapshotPlugin implements Plugin {
 

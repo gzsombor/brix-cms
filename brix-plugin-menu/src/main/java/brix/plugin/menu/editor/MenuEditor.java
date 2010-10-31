@@ -17,7 +17,6 @@ package brix.plugin.menu.editor;
 import java.util.ArrayList;
 import java.util.List;
 
-import brix.plugin.menu.editor.cell.SwitcherColumn;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -29,6 +28,7 @@ import org.apache.wicket.model.ResourceModel;
 import brix.plugin.menu.ManageMenuPanel;
 import brix.plugin.menu.Menu;
 import brix.plugin.menu.Menu.ChildEntry;
+import brix.plugin.menu.editor.cell.SwitcherColumn;
 import brix.plugin.site.picker.reference.ReferenceEditorConfiguration;
 import brix.web.generic.BrixGenericPanel;
 

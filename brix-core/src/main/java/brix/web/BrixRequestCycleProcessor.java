@@ -14,13 +14,12 @@
 
 package brix.web;
 
-import brix.Brix;
-import brix.Path;
-import brix.config.BrixConfig;
-import brix.jcr.api.JcrSession;
-import brix.jcr.wrapper.BrixNode;
-import brix.plugin.site.SitePlugin;
-import brix.workspace.Workspace;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.wicket.IRequestTarget;
 import org.apache.wicket.MetaDataKey;
 import org.apache.wicket.RequestCycle;
@@ -33,10 +32,13 @@ import org.apache.wicket.request.IRequestCodingStrategy;
 import org.apache.wicket.request.RequestParameters;
 import org.apache.wicket.util.string.Strings;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import brix.Brix;
+import brix.Path;
+import brix.config.BrixConfig;
+import brix.jcr.api.JcrSession;
+import brix.jcr.wrapper.BrixNode;
+import brix.plugin.site.SitePlugin;
+import brix.workspace.Workspace;
 
 public class BrixRequestCycleProcessor extends HttpsRequestCycleProcessor
 {

@@ -14,17 +14,12 @@
 
 package brix.plugin.snapshot;
 
-import brix.Brix;
-import brix.auth.Action;
-import brix.auth.Action.Context;
-import brix.exception.BrixException;
-import brix.jcr.api.JcrSession;
-import brix.plugin.snapshot.auth.CreateSnapshotAction;
-import brix.plugin.snapshot.auth.DeleteSnapshotAction;
-import brix.plugin.snapshot.auth.RestoreSnapshotAction;
-import brix.web.generic.BrixGenericPanel;
-import brix.workspace.Workspace;
-import brix.workspace.WorkspaceModel;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+import javax.jcr.ImportUUIDBehavior;
+
 import org.apache.wicket.IRequestTarget;
 import org.apache.wicket.RequestCycle;
 import org.apache.wicket.behavior.SimpleAttributeModifier;
@@ -43,10 +38,17 @@ import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.protocol.http.WebResponse;
 
-import javax.jcr.ImportUUIDBehavior;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
+import brix.Brix;
+import brix.auth.Action;
+import brix.auth.Action.Context;
+import brix.exception.BrixException;
+import brix.jcr.api.JcrSession;
+import brix.plugin.snapshot.auth.CreateSnapshotAction;
+import brix.plugin.snapshot.auth.DeleteSnapshotAction;
+import brix.plugin.snapshot.auth.RestoreSnapshotAction;
+import brix.web.generic.BrixGenericPanel;
+import brix.workspace.Workspace;
+import brix.workspace.WorkspaceModel;
 
 public class ManageSnapshotsPanel extends BrixGenericPanel<Workspace> {
     private Brix getBrix() {

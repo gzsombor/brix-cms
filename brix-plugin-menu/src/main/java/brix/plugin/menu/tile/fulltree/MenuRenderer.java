@@ -14,20 +14,21 @@
 
 package brix.plugin.menu.tile.fulltree;
 
-import brix.auth.Action.Context;
-import brix.jcr.wrapper.BrixNode;
-import brix.plugin.menu.Menu;
-import brix.plugin.menu.Menu.ChildEntry;
-import brix.plugin.menu.tile.AbstractMenuRenderer;
-import brix.plugin.site.SitePlugin;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.wicket.Response;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.MarkupStream;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.string.Strings;
 
-import java.util.List;
-import java.util.Set;
+import brix.auth.Action.Context;
+import brix.jcr.wrapper.BrixNode;
+import brix.plugin.menu.Menu;
+import brix.plugin.menu.Menu.ChildEntry;
+import brix.plugin.menu.tile.AbstractMenuRenderer;
+import brix.plugin.site.SitePlugin;
 
 /**
  * Component used to render the menu
