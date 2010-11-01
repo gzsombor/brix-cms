@@ -25,12 +25,12 @@ import javax.jcr.version.VersionHistory;
 abstract class ItemWrapper extends BaseWrapper<Item> implements Item
 {
 
-    protected ItemWrapper(Item delegate, SessionWrapper session)
+    protected ItemWrapper(Item delegate, EventHandlerSessionWrapper session)
     {
         super(delegate, session);
     }
 
-    public static ItemWrapper wrap(Item item, SessionWrapper session)
+    public static ItemWrapper wrap(Item item, EventHandlerSessionWrapper session)
     {
         if (item == null)
         {
@@ -87,7 +87,8 @@ abstract class ItemWrapper extends BaseWrapper<Item> implements Item
 
     public Session getSession() throws RepositoryException
     {
-        return getSessionWrapper();
+        //return getSessionWrapper();
+    	return getDelegate().getSession();
     }
 
     public boolean isModified()

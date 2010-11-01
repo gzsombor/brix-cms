@@ -26,7 +26,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * @author Matej Knopp
  * @author igor.vaynberg
  */
-public interface JcrRow extends Row
+public interface JcrRow 
 {
 
     public static class Wrapper
@@ -52,7 +52,7 @@ public interface JcrRow extends Row
      *             corresponds to more than one <code>Node</code>) or if another error occurs.
      * @since JCR 2.0
      */
-    public Node getNode();
+    public JcrNode getNode();
 
     /**
      * Returns the <code>Node</code> corresponding to this <code>Row</code> and the specified
@@ -68,7 +68,7 @@ public interface JcrRow extends Row
      *             another error occurs.
      * @since JCR 2.0
      */
-    public Node getNode(String selectorName);
+    public JcrNode getNode(String selectorName);
 
     /**
      * Equivalent to <code>Row.getNode().getPath()</code>. However, some implementations may be able

@@ -15,9 +15,7 @@
 package brix.jcr;
 
 import javax.jcr.Node;
-import javax.jcr.Repository;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 
 import brix.Brix;
 import brix.jcr.api.JcrNode;
@@ -102,7 +100,7 @@ public abstract class JcrNodeWrapperFactory implements RepositoryInitializer
 	 * 
 	 * @param session
 	 */
-	public void initializeRepository(Brix brix, Session session) throws RepositoryException
+	public void initializeRepository(Brix brix, JcrSession session) throws RepositoryException
 	{
 		// noop
 	}

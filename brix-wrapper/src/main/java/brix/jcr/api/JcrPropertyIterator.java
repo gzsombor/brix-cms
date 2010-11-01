@@ -22,7 +22,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * 
  * @author Matej Knopp
  */
-public interface JcrPropertyIterator extends PropertyIterator
+public interface JcrPropertyIterator 
 {
 
     public static class Wrapper
@@ -37,4 +37,5 @@ public interface JcrPropertyIterator extends PropertyIterator
 
     public JcrProperty nextProperty();
 
+    public boolean hasNext();
 }

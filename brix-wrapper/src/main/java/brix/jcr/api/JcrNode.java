@@ -43,7 +43,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * @author Matej Knopp
  * @author igor.vaynberg
  */
-public interface JcrNode extends JcrItem, Node
+public interface JcrNode extends JcrItem
 {
 
     public static class Wrapper
@@ -233,7 +233,7 @@ public interface JcrNode extends JcrItem, Node
 
     public JcrProperty setProperty(String name, Calendar value);
 
-    public JcrProperty setProperty(String name, Node value);
+    public JcrProperty setProperty(String name, JcrNode value);
 
     public JcrProperty setProperty(String name, Value value, int type);
 

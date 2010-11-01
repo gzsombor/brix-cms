@@ -23,7 +23,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * 
  * @author Matej Knopp
  */
-public interface JcrItem extends Item
+public interface JcrItem 
 {
 
     public static class Wrapper
@@ -56,7 +56,7 @@ public interface JcrItem extends Item
 
     public boolean isNode();
 
-    public boolean isSame(Item otherItem);
+    public boolean isSame(JcrItem otherItem);
 
     public void refresh(boolean keepChanges);
 

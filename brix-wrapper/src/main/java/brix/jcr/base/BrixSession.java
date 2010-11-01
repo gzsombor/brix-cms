@@ -22,6 +22,14 @@ import brix.jcr.base.action.AbstractActionHandler;
 import brix.jcr.base.event.EventsListener;
 import brix.jcr.base.filter.ValueFilter;
 
+/**
+ * Brix specific extension to the javax.jcr.Session interface, to add action and event handling.
+ * 
+ * @see javax.jcr.Session
+ * @see EventsListener
+ * @see AbstractActionHandler
+ *
+ */
 public interface BrixSession extends Session
 {
 	public Map<String, Object> getAttributesMap();
@@ -33,4 +41,5 @@ public interface BrixSession extends Session
 	public void setValueFilter(ValueFilter valueFilter);
 	
 	public ValueFilter getValueFilter();
+	
 }

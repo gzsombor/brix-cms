@@ -15,7 +15,6 @@
 package brix.plugin.site.page;
 
 import javax.jcr.Node;
-import javax.jcr.Session;
 
 import brix.Brix;
 import brix.jcr.JcrNodeWrapperFactory;
@@ -42,7 +41,7 @@ public class TemplateNode extends AbstractContainer
         }
 
         @Override
-        public void initializeRepository(Brix brix, Session session)
+        public void initializeRepository(Brix brix, JcrSession session)
         {
             RepositoryUtil.registerNodeType(session.getWorkspace(), TemplateSiteNodePlugin.TYPE, false, false, true);
         }

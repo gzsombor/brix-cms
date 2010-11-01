@@ -24,7 +24,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * 
  * @author Matej Knopp
  */
-public interface JcrQuery extends Query
+public interface JcrQuery
 {
 
     public static class Wrapper

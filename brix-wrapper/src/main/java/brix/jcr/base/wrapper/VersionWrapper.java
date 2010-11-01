@@ -25,7 +25,7 @@ import javax.jcr.version.VersionHistory;
 class VersionWrapper extends NodeWrapper implements javax.jcr.version.Version
 {
 
-    private VersionWrapper(Version delegate, SessionWrapper session)
+    private VersionWrapper(Version delegate, EventHandlerSessionWrapper session)
     {
         super(delegate, session);
     }
@@ -36,7 +36,7 @@ class VersionWrapper extends NodeWrapper implements javax.jcr.version.Version
         return (Version)super.getDelegate();
     }
 
-    public static VersionWrapper wrap(Version delegate, SessionWrapper session)
+    public static VersionWrapper wrap(Version delegate, EventHandlerSessionWrapper session)
     {
         if (delegate == null)
         {
@@ -48,7 +48,7 @@ class VersionWrapper extends NodeWrapper implements javax.jcr.version.Version
         }
     }
 
-    public static VersionWrapper[] wrap(Version delegate[], SessionWrapper session)
+    public static VersionWrapper[] wrap(Version delegate[], EventHandlerSessionWrapper session)
     {
         if (delegate == null)
         {

@@ -796,7 +796,7 @@ public class SitePlugin implements SessionAwarePlugin
 
     private class WebDavEventListener implements EventsListener
     {
-        public void handleEventsBeforeSave(Session session, Item item, List<Event> events)
+        public void handleEventsBeforeSave(JcrSession session, Item item, List<Event> events)
                 throws RepositoryException
         {
             for (Event e : events)
@@ -808,13 +808,13 @@ public class SitePlugin implements SessionAwarePlugin
                     BrixNode node = wrapNode(event.getNewNode());
                     if (node instanceof ResourceNode)
                     {
-                        handleNewNode(node.getPath(), node, brix.wrapSession(session), false);
+                        handleNewNode(node.getPath(), node, session, false);
                     }
                 }
             }
         }
 
-        public void handleEventsAfterSave(Session session, Item item, List<Event> events)
+        public void handleEventsAfterSave(JcrSession session, Item item, List<Event> events)
                 throws RepositoryException
         {
         }
@@ -874,9 +874,9 @@ public class SitePlugin implements SessionAwarePlugin
 
     private final class WebDavActionHandler extends AbstractActionHandler
     {
-        private final BrixSession session;
+        private final JcrSession session;
 
-        private WebDavActionHandler(BrixSession session)
+        private WebDavActionHandler(JcrSession session)
         {
             this.session = session;
         }
@@ -896,11 +896,11 @@ public class SitePlugin implements SessionAwarePlugin
                 return;
             }
 
-            handleNewNode(destAbsPath, null, brix.wrapSession(session), true);
+            handleNewNode(destAbsPath, null, session, true);
         }
     }
 
-    public void onWebDavSession(final BrixSession session)
+    public void onWebDavSession(final JcrSession session)
     {
         session.addEventsListener(webDavEventListener);
         session.addActionHandler(new WebDavActionHandler(session));

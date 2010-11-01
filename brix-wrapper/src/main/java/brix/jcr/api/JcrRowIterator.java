@@ -22,7 +22,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * 
  * @author Matej Knopp
  */
-public interface JcrRowIterator extends RowIterator
+public interface JcrRowIterator 
 {
 
     public static class Wrapper

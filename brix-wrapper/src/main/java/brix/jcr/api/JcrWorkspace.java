@@ -36,7 +36,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * @author Matej Knopp
  * @author igor.vaynberg
  */
-public interface JcrWorkspace extends Workspace
+public interface JcrWorkspace
 {
 
     public static class Wrapper

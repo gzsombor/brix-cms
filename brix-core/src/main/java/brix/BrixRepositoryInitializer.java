@@ -16,8 +16,6 @@ package brix;
 
 import javax.jcr.NamespaceRegistry;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import javax.jcr.Workspace;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +23,8 @@ import org.slf4j.LoggerFactory;
 import brix.jcr.JcrEventListener;
 import brix.jcr.RepositoryInitializer;
 import brix.jcr.RepositoryUtil;
+import brix.jcr.api.JcrSession;
+import brix.jcr.api.JcrWorkspace;
 import brix.jcr.base.EventUtil;
 import brix.jcr.wrapper.BrixNode;
 import brix.plugin.site.folder.FolderNodePlugin;
@@ -46,9 +46,9 @@ public class BrixRepositoryInitializer implements RepositoryInitializer
 	}
     
     /** {@inheritDoc} */
-    public void initializeRepository(Brix brix, Session session) throws RepositoryException
+    public void initializeRepository(Brix brix, JcrSession session) throws RepositoryException
     {
-        final Workspace w = session.getWorkspace();
+        final JcrWorkspace w = session.getWorkspace();
         NamespaceRegistry nr = w.getNamespaceRegistry();
 
         try

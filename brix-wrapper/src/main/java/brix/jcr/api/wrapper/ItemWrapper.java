@@ -152,13 +152,13 @@ abstract class ItemWrapper extends AbstractWrapper implements JcrItem
         return getDelegate().isNode();
     }
 
-    public boolean isSame(final Item otherItem)
+    public boolean isSame(final JcrItem otherItem)
     {
         return executeCallback(new Callback<Boolean>()
         {
             public Boolean execute() throws Exception
             {
-                return getDelegate().isSame(unwrap(otherItem));
+                return getDelegate().isSame(unwrap(otherItem.getDelegate()));
             }
         });
     }

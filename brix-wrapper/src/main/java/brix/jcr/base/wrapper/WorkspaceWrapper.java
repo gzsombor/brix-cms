@@ -21,7 +21,6 @@ import javax.jcr.AccessDeniedException;
 import javax.jcr.NamespaceRegistry;
 import javax.jcr.NoSuchWorkspaceException;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 import javax.jcr.UnsupportedRepositoryOperationException;
 import javax.jcr.Workspace;
 import javax.jcr.lock.LockManager;
@@ -33,15 +32,17 @@ import javax.jcr.version.VersionManager;
 
 import org.xml.sax.ContentHandler;
 
+import brix.jcr.base.BrixSession;
+
 class WorkspaceWrapper extends BaseWrapper<Workspace> implements Workspace
 {
 
-    private WorkspaceWrapper(Workspace delegate, SessionWrapper session)
+    private WorkspaceWrapper(Workspace delegate, EventHandlerSessionWrapper session)
     {
         super(delegate, session);
     }
 
-    public static WorkspaceWrapper wrap(Workspace delegate, SessionWrapper session)
+    public static WorkspaceWrapper wrap(Workspace delegate, EventHandlerSessionWrapper session)
     {
         if (delegate == null)
         {
@@ -112,7 +113,7 @@ class WorkspaceWrapper extends BaseWrapper<Workspace> implements Workspace
         return QueryManagerWrapper.wrap(getDelegate().getQueryManager(), getSessionWrapper());
     }
 
-    public Session getSession()
+    public BrixSession getSession()
     {
         return getSessionWrapper();
     }

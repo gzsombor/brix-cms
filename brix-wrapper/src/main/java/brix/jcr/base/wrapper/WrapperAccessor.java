@@ -22,21 +22,21 @@ public class WrapperAccessor
 {
     public static BrixSession wrap(Session session)
     {
-    	if (session instanceof SessionWrapper)
+    	if (session instanceof EventHandlerSessionWrapper)
     	{
-    		return (SessionWrapper)session;
+    		return (EventHandlerSessionWrapper)session;
     	}
     	else
     	{
-    		return SessionWrapper.wrap(session);	
+    		return EventHandlerSessionWrapper.wrap(session);	
     	}        
     }
 
     public static Session unwrap(Session session)
     {
-        while (session instanceof SessionWrapper)
+        while (session instanceof EventHandlerSessionWrapper)
         {
-            session = ((SessionWrapper)session).getDelegate();
+            session = ((EventHandlerSessionWrapper)session).getDelegate();
         }
         return session;
     }

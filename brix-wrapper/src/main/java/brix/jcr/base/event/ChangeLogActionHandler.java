@@ -21,18 +21,18 @@ import javax.jcr.Item;
 import javax.jcr.Node;
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 import javax.jcr.lock.Lock;
 import javax.jcr.version.Version;
 
+import brix.jcr.api.JcrSession;
 import brix.jcr.base.action.AbstractActionHandler;
 
 public class ChangeLogActionHandler extends AbstractActionHandler
 {
 	private final ChangeLog changeLog;
-	private final Session session;
+	private final JcrSession session;
 
-	public ChangeLogActionHandler(ChangeLog changeLog, Session session)
+	public ChangeLogActionHandler(ChangeLog changeLog, JcrSession session)
 	{
 		this.changeLog = changeLog;
 		this.session = session;

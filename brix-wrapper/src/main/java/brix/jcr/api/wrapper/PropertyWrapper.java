@@ -317,7 +317,7 @@ class PropertyWrapper extends ItemWrapper implements JcrProperty
         });
     }
 
-    public void accept(final ItemVisitor visitor)
+/*    public void accept(final ItemVisitor visitor)
     {
         executeCallback(new VoidCallback()
         {
@@ -326,7 +326,7 @@ class PropertyWrapper extends ItemWrapper implements JcrProperty
                 visitor.visit(PropertyWrapper.this);
             }
         });
-    }
+    }*/
 
     public Binary getBinary()
     {

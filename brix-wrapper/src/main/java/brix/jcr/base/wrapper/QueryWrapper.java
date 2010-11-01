@@ -23,12 +23,12 @@ import javax.jcr.query.QueryResult;
 class QueryWrapper extends BaseWrapper<Query> implements Query
 {
 
-    private QueryWrapper(Query delegate, SessionWrapper session)
+    private QueryWrapper(Query delegate, EventHandlerSessionWrapper session)
     {
         super(delegate, session);
     }
 
-    public static QueryWrapper wrap(Query delegate, SessionWrapper session)
+    public static QueryWrapper wrap(Query delegate, EventHandlerSessionWrapper session)
     {
         if (delegate == null)
         {

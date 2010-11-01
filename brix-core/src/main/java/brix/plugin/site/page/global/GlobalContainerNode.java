@@ -15,7 +15,6 @@
 package brix.plugin.site.page.global;
 
 import javax.jcr.Node;
-import javax.jcr.Session;
 
 import brix.Brix;
 import brix.jcr.JcrNodeWrapperFactory;
@@ -45,7 +44,7 @@ public class GlobalContainerNode extends AbstractContainer
         }
 
         @Override
-        public void initializeRepository(Brix brix, Session session)
+        public void initializeRepository(Brix brix, JcrSession session)
         {
             RepositoryUtil.registerNodeType(session.getWorkspace(), TYPE,
                 false, false, true);

@@ -21,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import brix.Brix;
+import brix.jcr.api.JcrWorkspace;
 import brix.util.StringInputStream;
 
 /**
@@ -32,7 +33,7 @@ public class RepositoryUtil
 {
     private static final Logger logger = LoggerFactory.getLogger(Brix.class);
 
-    public static void registerNodeType(Workspace workspace, String typeName,
+    public static void registerNodeType(JcrWorkspace workspace, String typeName,
             boolean referenceable, boolean orderable, boolean mixin)
     {
         try

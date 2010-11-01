@@ -20,6 +20,9 @@ import javax.jcr.Item;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import brix.jcr.api.JcrSession;
+import brix.jcr.base.BrixSession;
+
 /**
  * Object that gets notifications before and after save method has been invoked
  * on item or session.
@@ -39,7 +42,7 @@ public interface EventsListener
 	 *            occurred before the save call
 	 * @throws RepositoryException
 	 */
-	public void handleEventsBeforeSave(Session session, Item item, List<Event> events) throws RepositoryException;
+	public void handleEventsBeforeSave(JcrSession session, Item item, List<Event> events) throws RepositoryException;
 
 	/**
 	 * Invoked right after the {@link Item#save()} method was called on the given item
@@ -52,5 +55,5 @@ public interface EventsListener
 	 *            occurred before the save call
 	 * @throws RepositoryException
 	 */
-	public void handleEventsAfterSave(Session session, Item item, List<Event> events) throws RepositoryException;
+	public void handleEventsAfterSave(JcrSession session, Item item, List<Event> events) throws RepositoryException;
 }

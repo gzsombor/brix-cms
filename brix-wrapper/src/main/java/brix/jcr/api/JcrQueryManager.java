@@ -25,7 +25,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * @author Matej Knopp
  * @author igor.vaynberg
  */
-public interface JcrQueryManager extends QueryManager
+public interface JcrQueryManager
 {
 
     public static class Wrapper

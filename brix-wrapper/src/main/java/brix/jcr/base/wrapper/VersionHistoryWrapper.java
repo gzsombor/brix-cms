@@ -23,7 +23,7 @@ import javax.jcr.version.VersionIterator;
 class VersionHistoryWrapper extends NodeWrapper implements VersionHistory
 {
 
-    private VersionHistoryWrapper(VersionHistory delegate, SessionWrapper session)
+    private VersionHistoryWrapper(VersionHistory delegate, EventHandlerSessionWrapper session)
     {
         super(delegate, session);
     }
@@ -34,7 +34,7 @@ class VersionHistoryWrapper extends NodeWrapper implements VersionHistory
         return (VersionHistory)super.getDelegate();
     }
 
-    public static VersionHistoryWrapper wrap(VersionHistory history, SessionWrapper session)
+    public static VersionHistoryWrapper wrap(VersionHistory history, EventHandlerSessionWrapper session)
     {
         if (history == null)
         {

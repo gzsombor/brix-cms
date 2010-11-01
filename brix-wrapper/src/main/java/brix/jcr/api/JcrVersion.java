@@ -27,7 +27,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * @author Matej Knopp
  * @author igor.vaynberg
  */
-public interface JcrVersion extends Version, JcrNode
+public interface JcrVersion extends JcrNode
 {
 
     public static class Wrapper
@@ -61,7 +61,7 @@ public interface JcrVersion extends Version, JcrNode
      *             if an error occurs.
      * @since JCR 2.0
      */
-    public Node getFrozenNode();
+    public JcrNode getFrozenNode();
     
     
 

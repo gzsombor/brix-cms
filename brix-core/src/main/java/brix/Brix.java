@@ -44,6 +44,7 @@ import brix.jcr.RepositoryInitializer;
 import brix.jcr.SessionBehavior;
 import brix.jcr.api.JcrNode;
 import brix.jcr.api.JcrSession;
+import brix.jcr.base.BrixSession;
 import brix.jcr.exception.JcrException;
 import brix.jcr.wrapper.BrixNode;
 import brix.plugin.site.SitePlugin;

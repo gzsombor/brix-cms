@@ -23,12 +23,12 @@ import javax.jcr.query.qom.QueryObjectModelFactory;
 class QueryManagerWrapper extends BaseWrapper<QueryManager> implements QueryManager
 {
 
-    private QueryManagerWrapper(QueryManager delegate, SessionWrapper session)
+    private QueryManagerWrapper(QueryManager delegate, EventHandlerSessionWrapper session)
     {
         super(delegate, session);
     }
 
-    public static QueryManagerWrapper wrap(QueryManager delegate, SessionWrapper session)
+    public static QueryManagerWrapper wrap(QueryManager delegate, EventHandlerSessionWrapper session)
     {
         if (delegate == null)
         {

@@ -16,6 +16,7 @@ package brix.jcr.api;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Map;
 
 import javax.jcr.AccessDeniedException;
 import javax.jcr.Credentials;
@@ -37,13 +38,21 @@ import javax.jcr.version.VersionException;
 import org.xml.sax.ContentHandler;
 
 import brix.jcr.api.wrapper.WrapperAccessor;
-import brix.jcr.base.BrixSession;
+import brix.jcr.base.action.AbstractActionHandler;
+import brix.jcr.base.event.EventsListener;
+import brix.jcr.base.filter.ValueFilter;
 
 /**
+ * This interface is simulates the javax.jcr.Session interface, only the exception 
+ * handling is encapsulated in the Behavior class, so the methods are'nt throwing checked
+ * exceptions. 
+ * 
+ * @see javax.jcr.Session
+ * @see Behavior
  * 
  * @author Matej Knopp
  */
-public interface JcrSession extends BrixSession
+public interface JcrSession 
 {
 
     public static class Wrapper
@@ -91,8 +100,6 @@ public interface JcrSession extends BrixSession
     };
 
     public Behavior getBehavior();
-
-    public Session getDelegate();
 
     /**
      * @deprecated As of JCR 2.0, {@link LockManager#addLockToken(String)} should be used instead.
@@ -445,4 +452,16 @@ public interface JcrSession extends BrixSession
      * @since JCR 2.0
      */
     public RetentionManager getRetentionManager();
+    
+    
+	public Map<String, Object> getAttributesMap();
+	
+	public void addActionHandler(AbstractActionHandler handler);
+	
+	public void addEventsListener(EventsListener listener);
+	
+	public void setValueFilter(ValueFilter valueFilter);
+	
+	public ValueFilter getValueFilter();
+    
 }

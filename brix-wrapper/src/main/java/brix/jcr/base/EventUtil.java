@@ -27,6 +27,7 @@ import javax.jcr.observation.EventIterator;
 
 import brix.jcr.api.JcrNode;
 import brix.jcr.api.JcrSession;
+import brix.jcr.api.JcrSession.Behavior;
 import brix.jcr.base.wrapper.WrapperAccessor;
 import brix.jcr.exception.JcrException;
 

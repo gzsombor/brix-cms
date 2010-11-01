@@ -20,12 +20,12 @@ import javax.jcr.PropertyIterator;
 class PropertyIteratorWrapper extends BaseWrapper<PropertyIterator> implements PropertyIterator
 {
 
-	private PropertyIteratorWrapper(PropertyIterator delegate, SessionWrapper session)
+	private PropertyIteratorWrapper(PropertyIterator delegate, EventHandlerSessionWrapper session)
 	{
 		super(delegate, session);
 	}
 
-	public static PropertyIteratorWrapper wrap(PropertyIterator delegate, SessionWrapper session)
+	public static PropertyIteratorWrapper wrap(PropertyIterator delegate, EventHandlerSessionWrapper session)
 	{
 		if (delegate == null)
 		{

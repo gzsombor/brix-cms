@@ -27,7 +27,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * @author Matej Knopp
  * @author igor.vaynberg
  */
-public interface JcrVersionHistory extends VersionHistory, JcrNode
+public interface JcrVersionHistory extends JcrNode
 {
 
     public static class Wrapper
@@ -48,7 +48,7 @@ public interface JcrVersionHistory extends VersionHistory, JcrNode
 
     public JcrVersion getVersion(String versionName);
 
-    public Version getVersionByLabel(String label);
+    public JcrVersion getVersionByLabel(String label);
 
     public String[] getVersionLabels();
 
@@ -84,7 +84,7 @@ public interface JcrVersionHistory extends VersionHistory, JcrNode
      * @throws RepositoryException if an error occurs.
      * @since JCR 2.0
      */
-    public NodeIterator getAllLinearFrozenNodes() ;
+    public JcrNodeIterator getAllLinearFrozenNodes() ;
 
     /**
      * Returns an iterator over all the frozen nodes of all the versions of this
@@ -96,7 +96,7 @@ public interface JcrVersionHistory extends VersionHistory, JcrNode
      * @throws RepositoryException if an error occurs.
      * @since JCR 2.0
      */
-    public NodeIterator getAllFrozenNodes();
+    public JcrNodeIterator getAllFrozenNodes();
     /**
      * This method returns an iterator over all the versions in the <i>line of
      * descent</i> from the root version to that base version within this
@@ -124,7 +124,7 @@ public interface JcrVersionHistory extends VersionHistory, JcrNode
      * @return a <code>VersionIterator</code> object.
      * @throws RepositoryException if an error occurs.
      */
-    public VersionIterator getAllLinearVersions() ;
+    public JcrVersionIterator getAllLinearVersions() ;
 
 
 }

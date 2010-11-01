@@ -14,11 +14,11 @@
 
 package brix;
 
-import brix.jcr.base.BrixSession;
+import brix.jcr.api.JcrSession;
 
 public interface SessionAwarePlugin extends Plugin
 {
 
-	public void onWebDavSession(BrixSession session);
+	public void onWebDavSession(JcrSession session);
 	
 }

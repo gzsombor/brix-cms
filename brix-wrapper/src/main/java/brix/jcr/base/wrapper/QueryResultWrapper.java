@@ -22,12 +22,12 @@ import javax.jcr.query.RowIterator;
 class QueryResultWrapper extends BaseWrapper<QueryResult> implements QueryResult
 {
 
-    private QueryResultWrapper(QueryResult delegate, SessionWrapper session)
+    private QueryResultWrapper(QueryResult delegate, EventHandlerSessionWrapper session)
     {
         super(delegate, session);
     }
 
-    public static QueryResultWrapper wrap(QueryResult delegate, SessionWrapper session)
+    public static QueryResultWrapper wrap(QueryResult delegate, EventHandlerSessionWrapper session)
     {
         if (delegate == null)
         {

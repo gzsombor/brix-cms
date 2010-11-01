@@ -28,12 +28,12 @@ import javax.jcr.ValueFormatException;
 class ValueFactoryWrapper extends BaseWrapper<ValueFactory> implements ValueFactory
 {
 
-    private ValueFactoryWrapper(ValueFactory delegate, SessionWrapper session)
+    private ValueFactoryWrapper(ValueFactory delegate, EventHandlerSessionWrapper session)
     {
         super(delegate, session);
     }
 
-    public static ValueFactory wrap(ValueFactory delegate, SessionWrapper session)
+    public static ValueFactory wrap(ValueFactory delegate, EventHandlerSessionWrapper session)
     {
         if (delegate == null)
         {

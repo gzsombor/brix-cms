@@ -20,9 +20,9 @@ class BaseWrapper<T>
 {
 
 	private final T delegate;
-	private final SessionWrapper session;
+	private final EventHandlerSessionWrapper session;
 
-	public BaseWrapper(T delegate, SessionWrapper session)
+	public BaseWrapper(T delegate, EventHandlerSessionWrapper session)
 	{
 		this.delegate = delegate;
 		this.session = session;
@@ -33,7 +33,7 @@ class BaseWrapper<T>
 		return delegate;
 	}
 
-	public SessionWrapper getSessionWrapper()
+	public EventHandlerSessionWrapper getSessionWrapper()
 	{
 		return session;
 	}

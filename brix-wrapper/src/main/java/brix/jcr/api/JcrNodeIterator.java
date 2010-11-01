@@ -22,7 +22,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * 
  * @author Matej Knopp
  */
-public interface JcrNodeIterator extends NodeIterator
+public interface JcrNodeIterator 
 {
 
     public static class Wrapper
@@ -36,5 +36,11 @@ public interface JcrNodeIterator extends NodeIterator
     public NodeIterator getDelegate();
 
     public JcrNode nextNode();
+    
+    public boolean hasNext();
+    
+    public long getSize();
+
+	public void skip(long i);
 
 }

@@ -20,12 +20,12 @@ import javax.jcr.NodeIterator;
 class NodeIteratorWrapper extends BaseWrapper<NodeIterator> implements NodeIterator
 {
 
-	private NodeIteratorWrapper(NodeIterator delegate, SessionWrapper session)
+	private NodeIteratorWrapper(NodeIterator delegate, EventHandlerSessionWrapper session)
 	{
 		super(delegate, session);
 	}
 
-	public static NodeIteratorWrapper wrap(NodeIterator delegate, SessionWrapper session)
+	public static NodeIteratorWrapper wrap(NodeIterator delegate, EventHandlerSessionWrapper session)
 	{
 		if (delegate == null)
 		{

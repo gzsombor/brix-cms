@@ -34,12 +34,12 @@ import javax.jcr.version.VersionException;
 class PropertyWrapper extends ItemWrapper implements Property
 {
 
-    private PropertyWrapper(Property delegate, SessionWrapper session)
+    private PropertyWrapper(Property delegate, EventHandlerSessionWrapper session)
     {
         super(delegate, session);
     }
 
-    public static PropertyWrapper wrap(Property delegate, SessionWrapper session)
+    public static PropertyWrapper wrap(Property delegate, EventHandlerSessionWrapper session)
     {
         if (delegate == null)
         {

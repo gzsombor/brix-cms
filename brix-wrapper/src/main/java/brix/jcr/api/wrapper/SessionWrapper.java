@@ -82,8 +82,9 @@ class SessionWrapper extends AbstractWrapper implements JcrSession
 	@Override
 	public BrixSession getDelegate()
 	{
-		return (BrixSession)super.getDelegate();
+		return (BrixSession) super.getDelegate();
 	}
+	
 
 	/** @deprecated */
 	@Deprecated

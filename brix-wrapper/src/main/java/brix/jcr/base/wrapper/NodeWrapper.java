@@ -45,12 +45,12 @@ import brix.jcr.base.EventUtil;
 class NodeWrapper extends ItemWrapper implements Node
 {
 
-	protected NodeWrapper(Node delegate, SessionWrapper session)
+	protected NodeWrapper(Node delegate, EventHandlerSessionWrapper session)
 	{
 		super(delegate, session);
 	}
 
-	public static NodeWrapper wrap(Node delegate, SessionWrapper session)
+	public static NodeWrapper wrap(Node delegate, EventHandlerSessionWrapper session)
 	{
 		if (delegate == null)
 		{
@@ -133,7 +133,7 @@ class NodeWrapper extends ItemWrapper implements Node
 		// TODO: we will need to rewire how save event is raised if we dont call
 		// node.save
 		// TODO: Remove this code
-		SessionWrapper session = getSessionWrapper();
+		EventHandlerSessionWrapper session = getSessionWrapper();
 		Node node = getDelegate();
 		if (session.raisedSaveEvent.contains(node) == false)
 		{

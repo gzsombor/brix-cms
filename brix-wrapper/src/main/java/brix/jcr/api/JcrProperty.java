@@ -37,7 +37,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * @author Matej Knopp
  * @author igor.vaynberg
  */
-public interface JcrProperty extends JcrItem, Property
+public interface JcrProperty extends JcrItem
 {
 
     public static class Wrapper

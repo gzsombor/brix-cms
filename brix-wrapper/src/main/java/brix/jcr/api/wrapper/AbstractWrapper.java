@@ -135,7 +135,7 @@ abstract class AbstractWrapper
     }
 
     @SuppressWarnings("unchecked")
-    protected <T> T unwrap(T wrapper)
+    protected static <T> T unwrap(T wrapper)
     {
         while (wrapper instanceof AbstractWrapper)
         {

@@ -45,6 +45,7 @@ import javax.jcr.version.VersionException;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 
+import brix.jcr.api.JcrSession;
 import brix.jcr.base.BrixSession;
 import brix.jcr.base.action.AbstractActionHandler;
 import brix.jcr.base.action.CompoundActionHandler;
@@ -53,18 +54,25 @@ import brix.jcr.base.event.ChangeLogActionHandler;
 import brix.jcr.base.event.EventsListener;
 import brix.jcr.base.filter.ValueFilter;
 
-class SessionWrapper extends BaseWrapper<Session> implements BrixSession
+class EventHandlerSessionWrapper extends BaseWrapper<Session> implements BrixSession
 {
+	final Set<Node> raisedSaveEvent = new HashSet<Node>();
 
-	private SessionWrapper(Session session)
+	private final CompoundActionHandler actionHandler = new CompoundActionHandler();
+
+	private final Map<String, Object> attributesMap = new HashMap<String, Object>();
+
+	private ValueFilter valueFilter = new ValueFilter();
+
+	private EventHandlerSessionWrapper(Session session)
 	{
 		super(session, null);
-
-		changeLogActionHandler = new ChangeLogActionHandler(new ChangeLog(), this);
+		// TODO : need non null 2nd parameter ... 
+		changeLogActionHandler = new ChangeLogActionHandler(new ChangeLog(), null);
 		actionHandler.addHandler(changeLogActionHandler);
 	}
 
-	public static SessionWrapper wrap(Session session)
+	public static EventHandlerSessionWrapper wrap(Session session)
 	{
 		if (session == null)
 		{
@@ -72,7 +80,7 @@ class SessionWrapper extends BaseWrapper<Session> implements BrixSession
 		}
 		else
 		{
-			return new SessionWrapper(session);
+			return new EventHandlerSessionWrapper(session);
 		}
 	}
 
@@ -188,7 +196,7 @@ class SessionWrapper extends BaseWrapper<Session> implements BrixSession
 		return ValueFactoryWrapper.wrap(getDelegate().getValueFactory(), this);
 	}
 
-	public Workspace getWorkspace()
+	public WorkspaceWrapper getWorkspace()
 	{
 		return WorkspaceWrapper.wrap(getDelegate().getWorkspace(), this);
 	}
@@ -198,9 +206,9 @@ class SessionWrapper extends BaseWrapper<Session> implements BrixSession
 		return getDelegate().hasPendingChanges();
 	}
 
-	public Session impersonate(Credentials credentials) throws RepositoryException
+	public BrixSession impersonate(Credentials credentials) throws RepositoryException
 	{
-		return SessionWrapper.wrap(getDelegate().impersonate(credentials));
+		return EventHandlerSessionWrapper.wrap(getDelegate().impersonate(credentials));
 	}
 
 	public void importXML(String parentAbsPath, InputStream in, int uuidBehavior)
@@ -259,9 +267,6 @@ class SessionWrapper extends BaseWrapper<Session> implements BrixSession
 		getDelegate().setNamespacePrefix(prefix, uri);
 	}
 
-	final Set<Node> raisedSaveEvent = new HashSet<Node>();
-
-	private final CompoundActionHandler actionHandler = new CompoundActionHandler();
 
 	public CompoundActionHandler getActionHandler()
 	{
@@ -282,14 +287,11 @@ class SessionWrapper extends BaseWrapper<Session> implements BrixSession
 		changeLogActionHandler.registerEventsListener(listener);
 	}
 
-	private final Map<String, Object> attributesMap = new HashMap<String, Object>();
-
 	public Map<String, Object> getAttributesMap()
 	{
 		return attributesMap;
 	}
 
-	private ValueFilter valueFilter = new ValueFilter();
 
 	public void setValueFilter(ValueFilter valueFilter)
 	{
@@ -356,7 +358,7 @@ class SessionWrapper extends BaseWrapper<Session> implements BrixSession
 	}
 
 	@Override
-	public SessionWrapper getSessionWrapper()
+	public EventHandlerSessionWrapper getSessionWrapper()
 	{
 		return this;
 	}

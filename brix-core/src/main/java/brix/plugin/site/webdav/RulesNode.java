@@ -20,7 +20,6 @@ import java.util.Comparator;
 import java.util.List;
 
 import javax.jcr.Node;
-import javax.jcr.Session;
 
 import brix.Brix;
 import brix.jcr.JcrNodeWrapperFactory;
@@ -166,7 +165,7 @@ public class RulesNode extends BrixNode
 		}
 
 		@Override
-		public void initializeRepository(Brix brix, Session session)
+		public void initializeRepository(Brix brix, JcrSession session)
 		{
 			RepositoryUtil.registerNodeType(session.getWorkspace(), TYPE, false, false, true);
 		}

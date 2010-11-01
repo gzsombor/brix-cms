@@ -702,13 +702,13 @@ public class NodeWrapper extends ItemWrapper implements JcrNode
         });
     }
 
-    public JcrProperty setProperty(final String name, final Node value)
+    public JcrProperty setProperty(final String name, final JcrNode value)
     {
         return executeCallback(new Callback<JcrProperty>()
         {
             public JcrProperty execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, unwrap(value)),
+                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, unwrap(value.getDelegate())),
                         getJcrSession());
             }
         });
@@ -793,7 +793,7 @@ public class NodeWrapper extends ItemWrapper implements JcrNode
         return getPath() + " [" + getPrimaryNodeType().getName() + "]";
     }
 
-    public void accept(final ItemVisitor visitor)
+    /*public void accept(final ItemVisitor visitor)
     {
         executeCallback(new VoidCallback()
         {
@@ -802,7 +802,7 @@ public class NodeWrapper extends ItemWrapper implements JcrNode
                 visitor.visit(NodeWrapper.this);
             }
         });
-    }
+    }*/
 
     public void followLifecycleTransition(final String transition)
     {

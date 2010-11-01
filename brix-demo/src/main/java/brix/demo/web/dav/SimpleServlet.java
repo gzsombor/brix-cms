@@ -32,6 +32,7 @@ import brix.Brix;
 import brix.Plugin;
 import brix.SessionAwarePlugin;
 import brix.demo.web.WicketApplication;
+import brix.jcr.api.JcrSession;
 import brix.jcr.base.BrixSession;
 import brix.jcr.base.EventUtil;
 
@@ -85,11 +86,13 @@ public class SimpleServlet extends SimpleWebdavServlet
                 if (s == null)
                 {
                     s = EventUtil.wrapSession(original.getSession(request, rep, workspace));
-                    for (Plugin p : getBrix().getPlugins())
+                    Brix brix = getBrix();
+                    JcrSession jcrSession = brix.wrapSession(s);
+					for (Plugin p : brix.getPlugins())
                     {
                         if (p instanceof SessionAwarePlugin)
                         {
-                            ((SessionAwarePlugin)p).onWebDavSession(s);
+                            ((SessionAwarePlugin)p).onWebDavSession(jcrSession);
                         }
                     }
                     request.setAttribute(key, s);

@@ -20,12 +20,12 @@ import javax.jcr.version.VersionIterator;
 class VersionIteratorWrapper extends BaseWrapper<VersionIterator> implements VersionIterator
 {
 
-	private VersionIteratorWrapper(VersionIterator delegate, SessionWrapper session)
+	private VersionIteratorWrapper(VersionIterator delegate, EventHandlerSessionWrapper session)
 	{
 		super(delegate, session);
 	}
 
-	public static VersionIteratorWrapper wrap(VersionIterator delegate, SessionWrapper session)
+	public static VersionIteratorWrapper wrap(VersionIterator delegate, EventHandlerSessionWrapper session)
 	{
 		if (delegate == null)
 		{
