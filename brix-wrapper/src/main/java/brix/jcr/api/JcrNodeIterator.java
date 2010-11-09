@@ -33,7 +33,7 @@ public interface JcrNodeIterator
         }
     };
 
-    public NodeIterator getDelegate();
+//    public NodeIterator getDelegate();
 
     public JcrNode nextNode();
     

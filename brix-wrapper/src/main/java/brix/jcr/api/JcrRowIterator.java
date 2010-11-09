@@ -33,7 +33,7 @@ public interface JcrRowIterator
         };
     };
 
-    public RowIterator getDelegate();
+//    public RowIterator getDelegate();
 
     public JcrRow nextRow();
 

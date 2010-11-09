@@ -34,8 +34,8 @@ public interface JcrQueryResult
             return WrapperAccessor.JcrQueryResultWrapper.wrap(delegate, session);
         }
     };
-
-    public QueryResult getDelegate();
+//
+//    public QueryResult getDelegate();
 
     public String[] getColumnNames();
 

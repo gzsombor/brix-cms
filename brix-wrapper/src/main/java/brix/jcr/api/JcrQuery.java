@@ -34,8 +34,8 @@ public interface JcrQuery
             return WrapperAccessor.JcrQueryWrapper.wrap(delegate, session);
         }
     };
-
-    public Query getDelegate();
+//
+//    public Query getDelegate();
 
     public JcrQueryResult execute();
 

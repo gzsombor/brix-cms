@@ -33,7 +33,7 @@ public interface JcrVersionIterator
         }
     };
 
-    public VersionIterator getDelegate();
+//    public VersionIterator getDelegate();
 
     public JcrVersion nextVersion();
 

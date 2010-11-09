@@ -35,8 +35,8 @@ public interface JcrQueryManager
             return WrapperAccessor.JcrQueryManagerWrapper.wrap(delegate, session);
         }
     }
-
-    public QueryManager getDelegate();
+//
+//    public QueryManager getDelegate();
 
     public JcrQuery createQuery(String statement, String language);
 

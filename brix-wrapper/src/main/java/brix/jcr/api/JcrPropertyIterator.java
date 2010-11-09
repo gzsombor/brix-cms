@@ -33,7 +33,7 @@ public interface JcrPropertyIterator
         }
     };
 
-    public PropertyIterator getDelegate();
+//    public PropertyIterator getDelegate();
 
     public JcrProperty nextProperty();
 

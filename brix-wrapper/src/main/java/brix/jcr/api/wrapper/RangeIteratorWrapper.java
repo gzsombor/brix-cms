@@ -22,7 +22,7 @@ import brix.jcr.api.JcrSession;
  * 
  * @author Matej Knopp
  */
-class RangeIteratorWrapper extends AbstractWrapper implements RangeIterator
+class RangeIteratorWrapper extends AbstractWrapper
 {
 
     protected RangeIteratorWrapper(RangeIterator delegate, JcrSession session)
