@@ -22,7 +22,6 @@ import javax.jcr.Binary;
 import javax.jcr.Node;
 import javax.jcr.PropertyType;
 import javax.jcr.RepositoryException;
-import javax.jcr.Value;
 import javax.jcr.ValueFactory;
 
 import brix.jcr.api.wrapper.WrapperAccessor;
@@ -32,7 +31,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * @author Matej Knopp
  * @author igor.vaynberg
  */
-public interface JcrValueFactory extends ValueFactory
+public interface JcrValueFactory 
 {
 
     public static class Wrapper
@@ -43,7 +42,7 @@ public interface JcrValueFactory extends ValueFactory
         }
     };
 
-    public ValueFactory getDelegate();
+//    public ValueFactory getDelegate();
 
     public JcrValue createValue(String value);
 
@@ -55,11 +54,11 @@ public interface JcrValueFactory extends ValueFactory
 
     public JcrValue createValue(Calendar value);
 
-    /**
-     * @deprecated As of JCR 2.0, {@link #createValue(Binary)} should be used instead.
-     */
-    @Deprecated
-    public JcrValue createValue(InputStream value);
+//    /**
+//     * @deprecated As of JCR 2.0, {@link #createValue(Binary)} should be used instead.
+//     */
+//    @Deprecated
+//    public JcrValue createValue(InputStream value);
 
     public JcrValue createValue(Node value);
 
@@ -74,7 +73,7 @@ public interface JcrValueFactory extends ValueFactory
      * @return a <code>Value</code> of {@link PropertyType#DECIMAL}
      * @since JCR 2.0
      */
-    public Value createValue(BigDecimal value);
+    public JcrValue createValue(BigDecimal value);
 
     /**
      * Returns a <code>Value</code> object of <code>PropertyType.BINARY</code> with a value
@@ -85,7 +84,7 @@ public interface JcrValueFactory extends ValueFactory
      * @return a <code>Value</code> of {@link PropertyType#BINARY}
      * @since JCR 2.0
      */
-    public Value createValue(Binary binary);
+    public JcrValue createValue(Binary binary);
 
     /**
      * Returns a <code>Binary</code> object with a value consisting of the content of the specified

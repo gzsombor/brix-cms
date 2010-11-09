@@ -30,7 +30,7 @@ import brix.jcr.api.wrapper.WrapperAccessor;
  * @author Matej Knopp
  * @author igor.vaynberg
  */
-public interface JcrValue extends Value
+public interface JcrValue
 {
 
     public static class Wrapper
@@ -48,6 +48,8 @@ public interface JcrValue extends Value
 
     public Value getDelegate();
 
+    public Object getValueAsObject();
+    
     public boolean getBoolean();
 
     public Calendar getDate();
@@ -56,9 +58,9 @@ public interface JcrValue extends Value
 
     public long getLong();
 
-    /** @deprecated {@link #getBinary()} should be used instead. */
-    @Deprecated
-    public InputStream getStream();
+    /** deprecated {@link #getBinary()} should be used instead. */
+    //@Deprecated
+    //public InputStream getStream();
 
     public String getString();
 

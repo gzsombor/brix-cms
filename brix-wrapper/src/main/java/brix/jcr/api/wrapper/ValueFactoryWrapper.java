@@ -82,12 +82,12 @@ class ValueFactoryWrapper extends AbstractWrapper implements JcrValueFactory
         return JcrValue.Wrapper.wrap(getDelegate().createValue(value), getJcrSession());
     }
 
-    /** @deprecated */
-    @Deprecated
-    public JcrValue createValue(InputStream value)
-    {
-        return JcrValue.Wrapper.wrap(getDelegate().createValue(value), getJcrSession());
-    }
+//    /** @deprecated */
+//    @Deprecated
+//    public JcrValue createValue(InputStream value)
+//    {
+//        return JcrValue.Wrapper.wrap(getDelegate().createValue(value), getJcrSession());
+//    }
 
     public JcrValue createValue(final Node value)
     {

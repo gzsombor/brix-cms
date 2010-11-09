@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 
 import javax.jcr.Binary;
+import javax.jcr.PropertyType;
 import javax.jcr.RepositoryException;
 import javax.jcr.Value;
 import javax.jcr.ValueFormatException;
@@ -174,6 +175,26 @@ class ValueWrapper extends AbstractWrapper implements JcrValue
                 return getDelegate().getDecimal();
             }
         });
+    }
+    
+    public Object getValueAsObject() {
+    	return executeCallback(new Callback<Object>() {
+    		public Object execute() throws Exception {
+    	    	Value obj = getDelegate();
+				switch (obj.getType()) {
+	        		case PropertyType.STRING : return obj.getString();
+	        		case PropertyType.BOOLEAN : return obj.getBoolean();
+	        		case PropertyType.BINARY : return obj.getBinary();
+	        		case PropertyType.DATE : return obj.getDate();
+	        		case PropertyType.DECIMAL : return obj.getDecimal();
+	        		case PropertyType.DOUBLE : return obj.getDouble();
+	        		case PropertyType.LONG : return obj.getLong();
+	        		default:
+	        			return obj.getString();
+    	    	}
+    		}
+    	});
+    	
     }
 
 }

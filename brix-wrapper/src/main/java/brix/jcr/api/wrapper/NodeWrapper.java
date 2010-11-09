@@ -34,6 +34,7 @@ import brix.jcr.api.JcrProperty;
 import brix.jcr.api.JcrPropertyIterator;
 import brix.jcr.api.JcrSession;
 import brix.jcr.api.JcrSession.Behavior;
+import brix.jcr.api.JcrValue;
 import brix.jcr.api.JcrVersion;
 import brix.jcr.api.JcrVersionHistory;
 
@@ -591,177 +592,129 @@ public class NodeWrapper extends ItemWrapper implements JcrNode
         });
     }
 
-    public JcrProperty setProperty(final String name, final Value value)
+    public void setProperty(final String name, final JcrValue value)
     {
-        return executeCallback(new Callback<JcrProperty>()
-        {
-            public JcrProperty execute() throws Exception
-            {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, unwrap(value)),
-                        getJcrSession());
-            }
-        });
+    	setPropertyValue(name, value.getValueAsObject());
     }
 
-    public JcrProperty setProperty(final String name, final Value[] values)
+    public void setProperty(final String name, final Value[] values)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
                 final Value[] unwrapped = unwrap(values, new Value[values.length]);
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, unwrapped),
-                        getJcrSession());
+                getDelegate().setProperty(name, unwrapped);
             }
         });
     }
 
-    public JcrProperty setProperty(final String name, final String[] values)
+    public void setProperty(final String name, final String[] values)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, values),
-                        getJcrSession());
+                getDelegate().setProperty(name, values);
             }
         });
     }
 
-    public JcrProperty setProperty(final String name, final String value)
+    public void setProperty(final String name, final String value)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, value),
-                        getJcrSession());
+                getDelegate().setProperty(name, value);
             }
         });
     }
 
     /** @depreated */
     @Deprecated
-    public JcrProperty setProperty(final String name, final InputStream value)
+    public void setProperty(final String name, final InputStream value)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, value),
-                        getJcrSession());
+                getDelegate().setProperty(name, value);
             }
         });
     }
 
-    public JcrProperty setProperty(final String name, final boolean value)
+    public void setProperty(final String name, final boolean value)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, value),
-                        getJcrSession());
+                getDelegate().setProperty(name, value);
             }
         });
     }
 
-    public JcrProperty setProperty(final String name, final double value)
+    public void setProperty(final String name, final double value)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, value),
-                        getJcrSession());
+                getDelegate().setProperty(name, value);
             }
         });
     }
 
-    public JcrProperty setProperty(final String name, final long value)
+    public void setProperty(final String name, final long value)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, value),
-                        getJcrSession());
+                getDelegate().setProperty(name, value);
             }
         });
     }
 
-    public JcrProperty setProperty(final String name, final Calendar value)
+    public void setProperty(final String name, final Calendar value)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, value),
-                        getJcrSession());
+                getDelegate().setProperty(name, value);
             }
         });
     }
 
-    public JcrProperty setProperty(final String name, final JcrNode value)
+    public void setProperty(final String name, final JcrNode value)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, unwrap(value.getDelegate())),
-                        getJcrSession());
+                getDelegate().setProperty(name, unwrap(value.getDelegate()));
             }
         });
     }
 
-    public JcrProperty setProperty(final String name, final Value value, final int type)
-    {
-        return executeCallback(new Callback<JcrProperty>()
+	public void setProperty(final String name, final JcrValue[] values) {
+        executeCallback(new VoidCallback()
         {
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate()
-                        .setProperty(name, unwrap(value), type), getJcrSession());
+            	// unwrap can't be used here, because JcrValue[] and Value[] is not related to each other
+            	Value[] result = new Value[values.length];
+            	for (int i = 0; i < values.length; i++) {
+            		result[i] = values[i].getDelegate();
+            	}
+                getDelegate().setProperty(name, result);
             }
         });
-    }
-
-    public JcrProperty setProperty(final String name, final Value[] values, final int type)
-    {
-        return executeCallback(new Callback<JcrProperty>()
-        {
-            public JcrProperty execute() throws Exception
-            {
-                final Value[] unwrapped = unwrap(values, new Value[values.length]);
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, unwrapped, type),
-                        getJcrSession());
-            }
-        });
-    }
-
-    public JcrProperty setProperty(final String name, final String[] values, final int type)
-    {
-        return executeCallback(new Callback<JcrProperty>()
-        {
-            public JcrProperty execute() throws Exception
-            {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, values, type),
-                        getJcrSession());
-            }
-        });
-    }
-
-    public JcrProperty setProperty(final String name, final String value, final int type)
-    {
-        return executeCallback(new Callback<JcrProperty>()
-        {
-            public JcrProperty execute() throws Exception
-            {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, value, type),
-                        getJcrSession());
-            }
-        });
-    }
+	}
+    
+    
 
     /** @depreated */
     @Deprecated
@@ -954,29 +907,64 @@ public class NodeWrapper extends ItemWrapper implements JcrNode
 
     }
 
-    public JcrProperty setProperty(final String name, final Binary value)
+    public void setProperty(final String name, final Binary value)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
 
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, unwrap(value)),
-                        getJcrSession());
+                getDelegate().setProperty(name, unwrap(value));
             }
         });
     }
 
-    public JcrProperty setProperty(final String name, final BigDecimal value)
+    public void setProperty(final String name, final BigDecimal value)
     {
-        return executeCallback(new Callback<JcrProperty>()
+        executeCallback(new VoidCallback()
         {
-
-            public JcrProperty execute() throws Exception
+            public void execute() throws Exception
             {
-                return JcrProperty.Wrapper.wrap(getDelegate().setProperty(name, unwrap(value)),
-                        getJcrSession());
+                getDelegate().setProperty(name, unwrap(value));
             }
         });
     }
+    
+    public void setPropertyValue(final String name, final Object value) {
+    	if (value instanceof JcrValue) {
+    		// recursive call
+    		setPropertyValue(name, ((JcrValue) value).getValueAsObject());
+    	} else {
+    		executeCallback(new VoidCallback() { 
+    			public void execute() throws Exception {
+    				Node node = getDelegate();
+    		    	if (value instanceof String) {
+    		    		node.setProperty(name, (String) value);
+    		    	} else if (value instanceof Long) {
+    		    		node.setProperty(name, (Long) value);
+    		    	} else if (value instanceof Boolean) {
+    		    		node.setProperty(name, (Boolean) value);
+    		    	} else if (value instanceof String[]) {
+    		    		node.setProperty(name, (String[]) value);
+    		    	} else if (value instanceof Double) {
+    		    		node.setProperty(name, (Double) value);
+    		    	} else if (value instanceof BigDecimal) {
+    		    		node.setProperty(name, (BigDecimal) value);
+    		    	} else if (value instanceof Calendar) {
+    		    		node.setProperty(name, (Calendar) value);
+    		    	} else if (value instanceof Node) {
+    		    		node.setProperty(name, (Node) value);
+    		    	} else if (value instanceof JcrNode) {
+    		    		node.setProperty(name, ((JcrNode) value).getDelegate());
+    		    	} else if (value == null) {
+    		    		node.setProperty(name, (String) null);
+    		    	} else {
+    		    		throw new RuntimeException("Unexpected type "+value.getClass()+" value="+value);
+    		    	}
+    				
+    			}
+    		});
+    	}
+    }
+
 }

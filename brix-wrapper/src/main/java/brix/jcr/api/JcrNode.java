@@ -222,32 +222,38 @@ public interface JcrNode extends JcrItem
 //    @Deprecated
 //    public void restoreByLabel(String versionLabel, boolean removeExisting);
 
+    
+    /**
+     * Simple, generic setter, which handle all t
+     */
+    public void setPropertyValue(String name, Object value);
+    
     /**
      * 
      */
-    public JcrProperty setProperty(String name, Value value);
+    public void setProperty(String name, JcrValue value);
 
-    public JcrProperty setProperty(String name, Value[] values);
+    public void setProperty(String name, JcrValue[] values);
 
-    public JcrProperty setProperty(String name, String[] values);
+    public void setProperty(String name, String[] values);
 
-    public JcrProperty setProperty(String name, String value);
+    public void setProperty(String name, String value);
 
     /**
      * @deprecated As of JCR 2.0, {@link #setProperty(String, Binary)} should be used instead.
      */
     @Deprecated
-    public JcrProperty setProperty(String name, InputStream value);
+    public void setProperty(String name, InputStream value);
 
-    public JcrProperty setProperty(String name, boolean value);
+    public void setProperty(String name, boolean value);
 
-    public JcrProperty setProperty(String name, double value);
+    public void setProperty(String name, double value);
 
-    public JcrProperty setProperty(String name, long value);
+    public void setProperty(String name, long value);
 
-    public JcrProperty setProperty(String name, Calendar value);
+    public void setProperty(String name, Calendar value);
 
-    public JcrProperty setProperty(String name, JcrNode value);
+    public void setProperty(String name, JcrNode value);
 
     // public JcrProperty setProperty(String name, Value value, int type);
 
@@ -292,7 +298,7 @@ public interface JcrNode extends JcrItem
      *             if another error occurs.
      * @since JCR 2.0
      */
-    public JcrProperty setProperty(String name, Binary value);
+    public void setProperty(String name, Binary value);
 
     /**
      * The behavior of this method is identical to that of
@@ -321,7 +327,7 @@ public interface JcrNode extends JcrItem
      *             if another error occurs.
      * @since JCR 2.0
      */
-    public JcrProperty setProperty(String name, BigDecimal value);
+    public void setProperty(String name, BigDecimal value);
 
     /**
      * Gets all child nodes of this node accessible through the current <code>Session</code> that

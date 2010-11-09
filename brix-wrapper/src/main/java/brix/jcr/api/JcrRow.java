@@ -37,11 +37,11 @@ public interface JcrRow
         }
     };
 
-    public Row getDelegate();
+    // public Row getDelegate();
 
     public JcrValue getValue(String propertyName);
 
-    public Value[] getValues();
+    public JcrValue[] getValues();
 
     /**
      * Returns the <code>Node</code> corresponding to this <code>Row</code>.
