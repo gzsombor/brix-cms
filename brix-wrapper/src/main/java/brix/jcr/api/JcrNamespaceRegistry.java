@@ -14,13 +14,11 @@
 
 package brix.jcr.api;
 
-import javax.jcr.NamespaceRegistry;
-
 /**
  * 
  * @author Matej Knopp
  */
-public interface JcrNamespaceRegistry extends NamespaceRegistry
+public interface JcrNamespaceRegistry 
 {
 	public String getPrefix(String uri);
 

@@ -14,7 +14,6 @@
 
 package brix;
 
-import javax.jcr.NamespaceRegistry;
 import javax.jcr.RepositoryException;
 
 import org.slf4j.Logger;
@@ -23,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import brix.jcr.JcrEventListener;
 import brix.jcr.RepositoryInitializer;
 import brix.jcr.RepositoryUtil;
+import brix.jcr.api.JcrNamespaceRegistry;
 import brix.jcr.api.JcrSession;
 import brix.jcr.api.JcrWorkspace;
 import brix.jcr.base.EventUtil;
@@ -49,7 +49,7 @@ public class BrixRepositoryInitializer implements RepositoryInitializer
     public void initializeRepository(Brix brix, JcrSession session) throws RepositoryException
     {
         final JcrWorkspace w = session.getWorkspace();
-        NamespaceRegistry nr = w.getNamespaceRegistry();
+        JcrNamespaceRegistry nr = w.getNamespaceRegistry();
 
         try
         {
