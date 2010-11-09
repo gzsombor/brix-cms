@@ -15,7 +15,6 @@
 package brix.jcr.api;
 
 import javax.jcr.Item;
-import javax.jcr.ItemVisitor;
 
 import brix.jcr.api.wrapper.WrapperAccessor;
 
@@ -36,9 +35,9 @@ public interface JcrItem
 
     public Item getDelegate();
 
-    public void accept(ItemVisitor visitor);
+    //public void accept(ItemVisitor visitor);
 
-    public JcrItem getAncestor(int depth);
+    //public JcrItem getAncestor(int depth);
 
     public int getDepth();
 
@@ -54,11 +53,11 @@ public interface JcrItem
 
     public boolean isNew();
 
-    public boolean isNode();
+    // public boolean isNode();
 
     public boolean isSame(JcrItem otherItem);
 
-    public void refresh(boolean keepChanges);
+    // public void refresh(boolean keepChanges);
 
     public void remove();
 

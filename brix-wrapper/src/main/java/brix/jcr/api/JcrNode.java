@@ -68,8 +68,8 @@ public interface JcrNode extends JcrItem
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#cancelMerge} should be
      *             used instead.
      */
-    @Deprecated
-    public void cancelMerge(Version version);
+//    @Deprecated
+//    public void cancelMerge(Version version);
 
     /**
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#checkin} should be used
@@ -89,22 +89,22 @@ public interface JcrNode extends JcrItem
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#doneMerge} should be used
      *             instead.
      */
-    @Deprecated
-    public void doneMerge(Version version);
+//    @Deprecated
+//    public void doneMerge(Version version);
 
 
     /**
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#getBaseVersion} should be
      *             used instead.
      */
-    @Deprecated
-    public JcrVersion getBaseVersion();
+//    @Deprecated
+//    public JcrVersion getBaseVersion();
 
-    public String getCorrespondingNodePath(String workspaceName);
+//    public String getCorrespondingNodePath(String workspaceName);
 
-    public NodeDefinition getDefinition();
+    //public NodeDefinition getDefinition();
 
-    public int getIndex();
+    //public int getIndex();
 
     /**
      * @deprecated As of JCR 2.0, {@link LockManager#getLock(String)} should be used instead.
@@ -126,11 +126,13 @@ public interface JcrNode extends JcrItem
 
     public JcrPropertyIterator getProperties();
 
-    public JcrPropertyIterator getProperties(String namePattern);
+    //public JcrPropertyIterator getProperties(String namePattern);
 
+    // TODO : it would be nicer, if there were a Object getPropertyValue(String) call,
+    // or <T> T getPropertyValue(String,T);
     public JcrProperty getProperty(String relPath);
 
-    public JcrPropertyIterator getReferences();
+    //public JcrPropertyIterator getReferences();
 
     /**
      * @deprecated As of JCR 2.0, {@link #getIdentifier()} should be used instead.
@@ -142,23 +144,29 @@ public interface JcrNode extends JcrItem
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#getVersionHistory} should
      *             be used instead.
      */
-    @Deprecated
-    public JcrVersionHistory getVersionHistory();
+//    @Deprecated
+//    public JcrVersionHistory getVersionHistory();
 
+    /**
+     * 
+     */
     public boolean hasNode(String relPath);
 
-    public boolean hasNodes();
+    //public boolean hasNodes();
 
-    public boolean hasProperties();
+    //public boolean hasProperties();
 
     public boolean hasProperty(String relPath);
 
     /**
      * @deprecated As of JCR 2.0, {@link LockManager#holdsLock(String)} should be used instead.
      */
-    @Deprecated
-    public boolean holdsLock();
+//    @Deprecated
+//    public boolean holdsLock();
 
+    /**
+     * 
+     */
     public boolean isCheckedOut();
 
     public boolean isLocked();
@@ -169,48 +177,54 @@ public interface JcrNode extends JcrItem
      * @deprecated As of JCR 2.0, {@link LockManager#lock(String, boolean, boolean, long, String)}
      *             should be used instead.
      */
-    @Deprecated
-    public Lock lock(boolean isDeep, boolean isSessionScoped);
+//    @Deprecated
+//    public Lock lock(boolean isDeep, boolean isSessionScoped);
 
     /**
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#merge} should be used
      *             instead.
      */
-    @Deprecated
-    public JcrNodeIterator merge(String srcWorkspace, boolean bestEffort);
+//    @Deprecated
+//    public JcrNodeIterator merge(String srcWorkspace, boolean bestEffort);
+//
+//    public void orderBefore(String srcChildRelPath, String destChildRelPath);
 
-    public void orderBefore(String srcChildRelPath, String destChildRelPath);
-
+    /**
+     * 
+     */
     public void removeMixin(String mixinName);
 
     /**
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#restore} should be used
      *             instead.
      */
-    @Deprecated
-    public void restore(String versionName, boolean removeExisting);
+//    @Deprecated
+//    public void restore(String versionName, boolean removeExisting);
 
     /**
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#restore} should be used
      *             instead.
      */
-    @Deprecated
-    public void restore(Version version, boolean removeExisting);
+//    @Deprecated
+//    public void restore(Version version, boolean removeExisting);
 
     /**
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#restore} should be used
      *             instead.
      */
-    @Deprecated
-    public void restore(Version version, String relPath, boolean removeExisting);
+//    @Deprecated
+//    public void restore(Version version, String relPath, boolean removeExisting);
 
     /**
      * @deprecated As of JCR 2.0, {@link javax.jcr.version.VersionManager#restoreByLabel} should be
      *             used instead.
      */
-    @Deprecated
-    public void restoreByLabel(String versionLabel, boolean removeExisting);
+//    @Deprecated
+//    public void restoreByLabel(String versionLabel, boolean removeExisting);
 
+    /**
+     * 
+     */
     public JcrProperty setProperty(String name, Value value);
 
     public JcrProperty setProperty(String name, Value[] values);
@@ -235,21 +249,21 @@ public interface JcrNode extends JcrItem
 
     public JcrProperty setProperty(String name, JcrNode value);
 
-    public JcrProperty setProperty(String name, Value value, int type);
+    // public JcrProperty setProperty(String name, Value value, int type);
 
-    public JcrProperty setProperty(String name, Value[] values, int type);
+    // public JcrProperty setProperty(String name, Value[] values, int type);
 
-    public JcrProperty setProperty(String name, String[] values, int type);
+    // public JcrProperty setProperty(String name, String[] values, int type);
 
-    public JcrProperty setProperty(String name, String value, int type);
+    // public JcrProperty setProperty(String name, String value, int type);
 
     /**
      * @deprecated As of JCR 2.0, {@link LockManager#unlock(String)} should be used instead.
      */
-    @Deprecated
-    public void unlock();
+//    @Deprecated
+//    public void unlock();
 
-    public void update(String srcWorkspaceName);
+//    public void update(String srcWorkspaceName);
 
     /**
      * The behavior of this method is identical to that of
