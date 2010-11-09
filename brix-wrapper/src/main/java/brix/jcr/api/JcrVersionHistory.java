@@ -14,11 +14,9 @@
 
 package brix.jcr.api;
 
-import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.version.Version;
 import javax.jcr.version.VersionHistory;
-import javax.jcr.version.VersionIterator;
 
 import brix.jcr.api.wrapper.WrapperAccessor;
 
@@ -38,7 +36,7 @@ public interface JcrVersionHistory extends JcrNode
         }
     };
 
-    public VersionHistory getDelegate();
+//    public VersionHistory getDelegate();
 
     public void addVersionLabel(String versionName, String label, boolean moveLabel);
 
@@ -54,11 +52,11 @@ public interface JcrVersionHistory extends JcrNode
 
     public String[] getVersionLabels(Version version);
 
-    /**
-     * @deprecated As of JCR 2.0, {@link #getVersionableIdentifier} should be used instead.
-     */
-    @Deprecated
-    public String getVersionableUUID();
+//    /**
+//     * @deprecated As of JCR 2.0, {@link #getVersionableIdentifier} should be used instead.
+//     */
+//    @Deprecated
+//    public String getVersionableUUID();
 
     public boolean hasVersionLabel(String label);
 

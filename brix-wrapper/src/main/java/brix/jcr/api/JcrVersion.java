@@ -16,7 +16,6 @@ package brix.jcr.api;
 
 import java.util.Calendar;
 
-import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.version.Version;
 
@@ -43,7 +42,7 @@ public interface JcrVersion extends JcrNode
         }
     };
 
-    public Version getDelegate();
+//    public Version getDelegate();
 
     public JcrVersionHistory getContainingHistory();
 
